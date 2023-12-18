@@ -23,9 +23,14 @@ jobs:
           - id: validation
             name: Validation acess-key from ssh
             run: |
+              ls
               echo ${{secrets.SSH_KEY_AWS}} > /tmp/server.pem
+              chmod 400 /tmp/server.pem
+              ls /tmp/
+              cat /tmp/server.pem
               
           - name: Update code
             run: |
+              ls
               scp -i /tmp/server.pem -R . admin@18.134.95.111:/var/www/html/index.html
               echo "Finish"
