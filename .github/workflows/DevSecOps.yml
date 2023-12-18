@@ -23,7 +23,7 @@ jobs:
           - id: validation
             name: Validation acess-key from ssh
             run: |
-              echo '${{secrets.SSH_KEY_AWS}}' > /tmp/server.pem
+              echo ${{secrets.SSH_KEY_AWS}} > /tmp/server.pem
               
           - name: Update code
             run: |
