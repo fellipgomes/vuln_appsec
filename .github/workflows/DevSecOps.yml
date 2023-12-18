@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-          - id: validation acess-key
+          - id: validation acess key
             name: Validation acess-key from ssh
             run: |
               echo '${{secrets.SSH_KEY_AWS}}' >> /tmp/server.pem
