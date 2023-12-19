@@ -19,8 +19,10 @@ jobs:
     steps:
           - id: validation
             name: Validation acess-key from ssh
+            env:
+              SUPER_SECRET: ${{ secrets.SSH_KEY_AWS }}
             run: |
-              echo """${{secrets.SSH_KEY_AWS}}""" > /tmp/server.pem
+              echo "${SUPER_SECRET}" > /tmp/server.pem
               
 
           - name: Check permissions
