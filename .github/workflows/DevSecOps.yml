@@ -22,12 +22,14 @@ jobs:
             env:
               SSH_KEY_AWS: ${{ secrets.SSH_KEY_AWS }}
             run: |
-              echo '${SSH_KEY_AWS}' > /tmp/server.pem
+              echo '${{ vars.PATH_AWS }}' > /tmp/server.pem
               
           - name: Check permissions
             run: |
               chmod 400 /tmp/server.pem
+              cat /tmp/server.pem
               ls -ilha /tmp/server.pem
+              
               
           - name: Update code
             run: |
