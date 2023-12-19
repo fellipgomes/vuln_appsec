@@ -20,11 +20,10 @@ jobs:
           - id: validation
             name: Validation acess-key from ssh
             env:
-              SUPER_SECRET: ${{ secrets.SSH_KEY_AWS }}
+              SSH_KEY_AWS: ${{ secrets.SSH_KEY_AWS }}
             run: |
-              echo "${{ vars.TEST_CHAVE }}" > /tmp/server.pem
+              echo '${SSH_KEY_AWS}' > /tmp/server.pem
               
-
           - name: Check permissions
             run: |
               chmod 400 /tmp/server.pem
