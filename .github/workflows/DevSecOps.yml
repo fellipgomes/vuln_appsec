@@ -30,5 +30,6 @@ jobs:
           - name: Update code
             run: |
               rm -rf .git .github
+              ls -ilha
               scp -i $SECRET_PATH -o "StrictHostKeyChecking no" -r . $REMOTE_PATH
               echo "Finish"
