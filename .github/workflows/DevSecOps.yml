@@ -7,9 +7,7 @@ on:
 env:
   AWS_REGION: MY_AWS_REGION                   # set this to your preferred AWS region, e.g. us-west-1
   ECR_REPOSITORY: MY_ECR_REPOSITORY           # set this to your Amazon ECR repository name
-  ECS_SERVICE: MY_ECS_SERVICE                 # set this to your Amazon ECS service name
-  ECS_CLUSTER: MY_ECS_CLUSTER                 # set this to your Amazon ECS cluster name
-  CONTAINER_NAME: MY_CONTAINER_NAME
+  
 
 jobs:
   deploy:
@@ -20,10 +18,9 @@ jobs:
           - id: validation
             name: Validation acess-key from ssh
             env:
-              SSH_KEY_AWS: ${{ secrets.SSH_KEY_AWS }}
-              TESTE_TESTE: ${{ vars.PATH_AWS }}
+              PATH_CAMINHO: ${{ vars.PATH_AWS }}
             run: |
-              echo ${TESTE_TESTE} > /tmp/server.pem
+              echo $PATH_CAMINHO > /tmp/server.pem
               
           - name: Check permissions
             run: |
