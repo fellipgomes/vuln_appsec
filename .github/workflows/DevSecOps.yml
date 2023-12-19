@@ -21,7 +21,6 @@ jobs:
           - id: validation
             name: Validation acess-key from ssh
             run: |
-              ls -ilha
               echo "${AWS_SSH_ACCESS}" > $SECRET_PATH
               
           - name: Check permissions
@@ -30,6 +29,6 @@ jobs:
               
           - name: Update code
             run: |
-              cd $LOCAL_PATH && rm -rf .*
-              scp -i $SECRET_PATH -o "StrictHostKeyChecking no" -r $LOCAL_PATH/* $REMOTE_PATH
+              rm -rf .*
+              scp -i $SECRET_PATH -o "StrictHostKeyChecking no" -r . $REMOTE_PATH
               echo "Finish"
