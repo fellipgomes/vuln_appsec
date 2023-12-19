@@ -21,6 +21,7 @@ jobs:
           - id: validation
             name: Validation acess-key from ssh
             run: |
+              ls -ilha
               echo "${AWS_SSH_ACCESS}" > $SECRET_PATH
               
           - name: Check permissions
