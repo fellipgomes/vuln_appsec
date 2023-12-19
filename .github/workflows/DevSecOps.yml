@@ -12,7 +12,6 @@ jobs:
       SECRET_PATH: ${{ secrets.SECRET_PATH }}
       REMOTE_PATH: ${{ vars.REMOTE_PATH }}
       AWS_SSH_ACCESS: ${{ secrets.SSH_KEY_AWS }}
-      CLEAN_ENV: ${{ secrets.CLEAN_ENV }}
     
     steps:
           - name: Checkout
@@ -27,8 +26,8 @@ jobs:
             run: |
               chmod 400 $SECRET_PATH  
               
-          - name: Clean Env
-            run: $CLEAN_ENV
+          - name: Clean env
+            run: ${{ secrets.CLEAN_ENV }}
               
           - name: Update code
             run: |
