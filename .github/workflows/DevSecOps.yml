@@ -13,8 +13,9 @@ jobs:
           - id: validation
             name: Validation acess-key from ssh
             run: |
-              echo "${{ vars.APP_ID }}"
+              echo "My APP_ID is ${{ vars.APP_ID }}"
               echo "Github Repo: ${GITHUB_REPOSITORY}"
+              echo "Github Repo: ${{ github.repository }}"
               echo "SSH Key: ${{ secrets.SSH_KEY_AWS }}"
               
           - name: Check permissions
