@@ -12,6 +12,7 @@ jobs:
       SECRET_PATH: ${{ secrets.SECRET_PATH }}
       REMOTE_PATH: ${{ vars.REMOTE_PATH }}
       AWS_SSH_ACCESS: ${{ secrets.SSH_KEY_AWS }}
+      LOCAL_PATH: ${{ vars.LOCAL_PATH }}
     
     steps:
           - name: Checkout
@@ -28,5 +29,6 @@ jobs:
               
           - name: Update code
             run: |
-              scp -i $SECRET_PATH -o "StrictHostKeyChecking no" -r /home/runner/work/vuln_appsec/vuln_appsec/ $REMOTE_PATH
+              rm -rf $LOCAL_PATH.* 2> /dev/null
+              scp -i $SECRET_PATH -o "StrictHostKeyChecking no" -r $LOCAL_PATH/* $REMOTE_PATH
               echo "Finish"
