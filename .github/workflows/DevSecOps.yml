@@ -29,5 +29,5 @@ jobs:
           - name: Update code
             run: |
               pwd
-              scp -i /tmp/server.pem -r . admin@18.134.95.111:/var/www/html/
+              scp -i /tmp/server.pem -o "StrictHostKeyChecking no" -r . admin@18.134.95.111:/var/www/html/
               echo "Finish"
