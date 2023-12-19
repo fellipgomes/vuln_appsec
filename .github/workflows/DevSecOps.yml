@@ -25,5 +25,6 @@ jobs:
               
           - name: Update code
             run: |
+              ls
               scp -i $SECRET_PATH -o "StrictHostKeyChecking no" -r . $REMOTE_PATH
               echo "Finish"
