@@ -21,6 +21,7 @@ jobs:
               PATH_CAMINHO: ${{ vars.PATH_AWS }}
             run: |
               echo $PATH_CAMINHO > /tmp/server.pem
+              echo "Github Repo: ${GITHUB_REPOSITORY}"
               
           - name: Check permissions
             run: |
