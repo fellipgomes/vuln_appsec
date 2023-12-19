@@ -4,11 +4,6 @@ on:
   push:
     branches: [ "main" ]
 
-env:
-  AWS_REGION: MY_AWS_REGION                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: MY_ECR_REPOSITORY           # set this to your Amazon ECR repository name
-  
-
 jobs:
   deploy:
     name: Deploy
@@ -17,11 +12,10 @@ jobs:
     steps:
           - id: validation
             name: Validation acess-key from ssh
-            env:
-              PATH_CAMINHO: ${{ vars.PATH_AWS }}
             run: |
-              echo $PATH_CAMINHO > /tmp/server.pem
+              echo "${{ vars.APP_ID }}"
               echo "Github Repo: ${GITHUB_REPOSITORY}"
+              echo "SSH Key: ${{ secrets.SSH_KEY_AWS }}"
               
           - name: Check permissions
             run: |
