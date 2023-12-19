@@ -22,7 +22,7 @@ jobs:
             run: |
               pwd
               ls
-              echo ${{secrets.SSH_KEY_AWS}} > /tmp/server.pem
+              echo """${{secrets.SSH_KEY_AWS}}""" > /tmp/server.pem
               chmod 400 /tmp/server.pem
               cat /tmp/server.pem
               
