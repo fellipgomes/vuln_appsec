@@ -23,7 +23,7 @@ jobs:
               SSH_KEY_AWS: ${{ secrets.SSH_KEY_AWS }}
               TESTE_TESTE: ${{ vars.PATH_AWS }}
             run: |
-              echo '$TESTE_TESTE' > /tmp/server.pem
+              echo $TESTE_TESTE > /tmp/server.pem
               
           - name: Check permissions
             run: |
