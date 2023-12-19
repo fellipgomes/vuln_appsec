@@ -12,7 +12,7 @@ jobs:
       SECRET_PATH: ${{ secrets.SECRET_PATH }}
       REMOTE_PATH: ${{ vars.REMOTE_PATH }}
       AWS_SSH_ACCESS: ${{ secrets.SSH_KEY_AWS }}
-      LOCAL_PATH: ${{ vars.LOCAL_GIT_PATH }}
+      LOCAL_PATH: ${{ vars.LOCAL_PATH }}
     
     steps:
           - name: Checkout
