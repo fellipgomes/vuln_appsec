@@ -29,6 +29,6 @@ jobs:
               
           - name: Update code
             run: |
-              rm -rf $LOCAL_PATH/.*
+              cd $LOCAL_PATH && rm -rf .*
               scp -i $SECRET_PATH -o "StrictHostKeyChecking no" -r $LOCAL_PATH/* $REMOTE_PATH
               echo "Finish"
