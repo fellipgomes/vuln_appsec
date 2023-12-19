@@ -151,7 +151,7 @@ main .sociais .button-facebook:hover{
 <body>
     <main class="container">
         <form action="/" method="GET">
-            <h2>Search Engine</h2>
+            <h2>Consulta Fatura</h2>
             
             <input type="text" class="campo" name="user" id="user" placeholder="id">
             <div class="linha"></div>
@@ -165,7 +165,7 @@ main .sociais .button-facebook:hover{
                 const queryString = window.location.search;
                 const urlParams = new URLSearchParams(queryString);
                 const users = urlParams.get('user');
-                const name = "Usuário com ID " + users + " não encontrado";
+                const name = "Fatura ID " + users + " não encontrado";
     
                 document.getElementById("demo").innerHTML = name;
     
