@@ -17,16 +17,11 @@ jobs:
           - id: validation
             name: Validation acess-key from ssh
             run: |
-              echo "My REMOTE_PATH is $REMOTE_PATH"
-              echo "My secret path is $SECRET_PATH"
-              echo "SSH Key: $AWS_SSH_ACCESS"
+              echo "${AWS_SSH_ACCESS}" > $SECRET_PATH
               
           - name: Check permissions
             run: |
-              chmod 400 /tmp/server.pem
-              cat /tmp/server.pem
-              ls -ilha /tmp/server.pem
-              
+              chmod 400 $SECRET_PATH            
               
           - name: Update code
             run: |
