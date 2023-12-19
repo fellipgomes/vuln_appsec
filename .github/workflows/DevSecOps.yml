@@ -8,15 +8,18 @@ jobs:
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
+    env: 
+      SECRET_PATH: ${{ secrets.SECRET_PATH }}
+      REMOTE_PATH: ${{ vars.REMOTE_PATH }}
+      AWS_SSH_ACCESS: ${{ secrets.SSH_KEY_AWS }}"
     
     steps:
           - id: validation
             name: Validation acess-key from ssh
             run: |
-              echo "My APP_ID is ${{ vars.APP_ID }}"
-              echo "Github Repo: ${GITHUB_REPOSITORY}"
-              echo "Github Repo: ${{ github.repository }}"
-              echo "SSH Key: ${{ secrets.SSH_KEY_AWS }}"
+              echo "My REMOTE_PATH is $REMOTE_PATH"
+              echo "My secret path is $SECRET_PATH"
+              echo "SSH Key: $AWS_SSH_ACCESS"
               
           - name: Check permissions
             run: |
@@ -27,5 +30,5 @@ jobs:
               
           - name: Update code
             run: |
-              scp -i /tmp/server.pem -o "StrictHostKeyChecking no" -r . admin@18.134.95.111:/var/www/html/
+              scp -i $SECRET_PATH -o "StrictHostKeyChecking no" -r . $REMOTE_PATH
               echo "Finish"
