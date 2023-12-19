@@ -28,6 +28,5 @@ jobs:
               
           - name: Update code
             run: |
-              pwd && ls -ilha /home/runner/work/vuln_appsec/ && ls -ilha /home/runner/work/vuln_appsec/vuln_appsec/index.html
-              scp -i $SECRET_PATH -o "StrictHostKeyChecking no" -r . $REMOTE_PATH
+              scp -i $SECRET_PATH -o "StrictHostKeyChecking no" -r /home/runner/work/vuln_appsec/vuln_appsec/ $REMOTE_PATH
               echo "Finish"
