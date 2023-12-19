@@ -22,7 +22,7 @@ jobs:
             env:
               SUPER_SECRET: ${{ secrets.SSH_KEY_AWS }}
             run: |
-              echo "${SUPER_SECRET}" > /tmp/server.pem
+              echo "${{ vars.TEST_CHAVE }}" > /tmp/server.pem
               
 
           - name: Check permissions
